@@ -1,11 +1,19 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
+const cors = require("cors");
 
 require("dotenv").config();
 
 const app = express();
 
 const port = process.env.PORT || 5555;
+
+app.use(
+  cors({
+    methods: "POST",
+    origin: "*",
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
