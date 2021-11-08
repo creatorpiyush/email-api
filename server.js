@@ -18,6 +18,10 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  return res.status(400).send("Access Denied");
+});
+
 app.post("/", (req, res) => {
   const { name, email, subject, message } = req.body;
   //   console.log(message);
